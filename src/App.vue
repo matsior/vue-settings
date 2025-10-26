@@ -1,24 +1,33 @@
 <script setup lang="ts">
 import type { Tab, TabKey } from '@/types.ts';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import TabLink from '@/components/TabLink.vue';
+import GeneralSettings from '@/components/GeneralSettings.vue';
+import NotificationsSettings from '@/components/NotificationsSettings.vue';
+import PrivacySettings from '@/components/PrivacySettings.vue';
 
 const tabs: Tab[] = [
   {
     key: 'General',
     label: 'General',
+    component: GeneralSettings,
   },
   {
     key: 'Notifications',
     label: 'Notifications',
+    component: NotificationsSettings,
   },
   {
     key: 'Privacy',
     label: 'Privacy',
+    component: PrivacySettings,
   },
 ];
 
 const currentTab = ref<TabKey>('General');
+const currentTabComponent = computed(() =>
+  tabs.find((tab) => tab.key === currentTab.value)?.component,
+);
 </script>
 
 <template>
@@ -30,5 +39,6 @@ const currentTab = ref<TabKey>('General');
         </li>
       </ul>
     </nav>
+    <component :is="currentTabComponent" />
   </main>
 </template>
