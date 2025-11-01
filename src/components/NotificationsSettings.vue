@@ -1,3 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>Notifications</template>
+<template>
+  <div>Notifications</div>
+</template>

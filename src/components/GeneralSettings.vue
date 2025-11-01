@@ -1,3 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>General</template>
+<template>
+  <div>General</div>
+</template>

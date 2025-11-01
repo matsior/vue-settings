@@ -1,3 +1,5 @@
 <script setup lang="ts"></script>
 
-<template>Privacy</template>
+<template>
+  <div>Privacy</div>
+</template>
